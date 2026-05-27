@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  foodexpress:
+    image: nginx:latest
+    container_name: food_delivery_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+    restart: always
