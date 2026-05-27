@@ -1,0 +1,248 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+ <meta charset="UTF-8" /> 
+ <meta name="viewport" content="width=device-width, iniƟ al-scale=1.0"/> 
+ <Ɵ tle>Food Delivery App</Ɵ tle>
+ <style> 
+ * { 
+ margin: 0; 
+ padding: 0; 
+ box-sizing: border-box; 
+ font-family: Arial, sans-serif; 
+ } 
+ body { 
+ background: #f4f4f4; 
+ color: #333; 
+ } 
+ header { 
+ background: #ff5722; 
+ color: white; 
+ padding: 15px 30px; 
+ display: flex; 
+ jusƟ fy-content: space-between; 
+ align-items: center; 
+ } 
+ header h1 { 
+ font-size: 28px; 
+ } 
+ nav a { 
+ color: white; 
+ margin-leŌ : 20px;
+ text-decoraƟ on: none;
+ font-weight: bold; 
+ } 
+ .hero { 
+ height: 300px; 
+ background: url('hƩ ps://images.unsplash.com/photo-1504674900247-
+0877df9cc836?q=80&w=1600&auto=format&fit=crop') 
+ center/cover no-repeat; 
+ display: flex; 
+ jusƟ fy-content: center; 
+ align-items: center; 
+ color: white; 
+ text-align: center; 
+ } 
+ .hero h2 { 
+ font-size: 42px; 
+ background: rgba(0,0,0,0.5); 
+ padding: 15px 25px; 
+ border-radius: 10px; 
+ } 
+ .container { 
+ padding: 40px 30px; 
+ } 
+ .food-grid { 
+ display: grid; 
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+ gap: 25px; 
+ } 
+ .food-card { 
+ background: white; 
+ border-radius: 15px; 
+ overflow: hidden; 
+ box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+ transiƟ on: 0.3s;
+ } 
+ .food-card:hover { 
+ transform: translateY(-5px); 
+ } 
+ .food-card img { 
+ width: 100%; 
+ height: 180px; 
+ object-fit: cover; 
+ } 
+ .food-info { 
+ padding: 20px; 
+ } 
+ .food-info h3 { 
+ margin-boƩ om: 10px;
+ } 
+ .price { 
+ color: #ff5722; 
+ font-size: 20px; 
+ margin: 10px 0; 
+ } 
+ .btn { 
+ background: #ff5722; 
+ color: white; 
+ border: none; 
+ padding: 10px 18px; 
+ border-radius: 8px; 
+ cursor: pointer; 
+ font-size: 16px; 
+ transiƟ on: 0.3s;
+ } 
+ .btn:hover { 
+ background: #e64a19; 
+ } 
+ .cart { 
+ posiƟ on: fixed;
+ right: 20px; 
+ boƩ om: 20px;
+ background: white; 
+ width: 300px; 
+ border-radius: 15px; 
+ padding: 20px; 
+ box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+ } 
+ .cart h2 { 
+ margin-boƩ om: 15px;
+ } 
+ .cart ul { 
+ list-style: none; 
+ max-height: 200px; 
+ overflow-y: auto; 
+ margin-boƩ om: 15px;
+ } 
+ .cart ul li { 
+ margin-boƩ om: 10px;
+ display: flex; 
+ jusƟ fy-content: space-between; 
+ } 
+ .total { 
+ font-weight: bold; 
+ margin-boƩ om: 15px;
+ } 
+ footer { 
+ text-align: center; 
+ padding: 20px; 
+ background: #222; 
+ color: white; 
+ margin-top: 40px; 
+ } 
+ @media(max-width: 600px) { 
+ .cart { 
+ width: 90%; 
+ right: 5%; 
+ } 
+ .hero h2 { 
+ font-size: 28px; 
+ } 
+ } 
+ </style> 
+</head> 
+<body> 
+ <header> 
+ <h1>FoodExpress</h1> 
+ <nav> 
+ <a href="#">Home</a> 
+ <a href="#">Menu</a> 
+ <a href="#">Orders</a> 
+ <a href="#">Contact</a> 
+ </nav> 
+ </header> 
+ <secƟ on class="hero">
+ <h2>Delicious Food Delivered Fast</h2> 
+ </secƟ on>
+ <secƟ on class="container">
+ <div class="food-grid"> 
+ <div class="food-card"> 
+ <img src="hƩ ps://images.unsplash.com/photo-1565299624946-
+b28f40a0ae38?q=80&w=1000&auto=format&fit=crop" alt="Pizza"> 
+ <div class="food-info"> 
+ <h3>Cheese Pizza</h3> 
+ <p>Hot cheesy pizza with fresh toppings.</p> 
+ <div class="price">$12</div> 
+ <buƩ on class="btn" onclick="addToCart('Cheese Pizza',12)">
+ Add to Cart 
+ </buƩ on>
+ </div> 
+ </div> 
+ <div class="food-card"> 
+ <img src="hƩ ps://images.unsplash.com/photo-1568901346375-
+23c9450c58cd?q=80&w=1000&auto=format&fit=crop" alt="Burger"> 
+ <div class="food-info"> 
+ <h3>Chicken Burger</h3> 
+ <p>Juicy burger with crispy chicken.</p> 
+ <div class="price">$9</div> 
+ <buƩ on class="btn" onclick="addToCart('Chicken Burger',9)">
+ Add to Cart 
+ </buƩ on>
+ </div> 
+ </div> 
+ <div class="food-card"> 
+ <img src="hƩ ps://images.unsplash.com/photo-1553621042-
+f6e147245754?q=80&w=1000&auto=format&fit=crop" alt="Pasta"> 
+ <div class="food-info"> 
+ <h3>Italian Pasta</h3> 
+ <p>Rich creamy pasta with herbs.</p> 
+ <div class="price">$11</div> 
+ <buƩ on class="btn" onclick="addToCart('Italian Pasta',11)">
+ Add to Cart 
+ </buƩ on>
+ </div> 
+ </div> 
+ <div class="food-card"> 
+ <img src="hƩ ps://images.unsplash.com/photo-1546069901-
+ba9599a7e63c?q=80&w=1000&auto=format&fit=crop" alt="Salad"> 
+ <div class="food-info"> 
+ <h3>Healthy Salad</h3> 
+ <p>Fresh vegetables with dressing.</p> 
+ <div class="price">$7</div> 
+ <buƩ on class="btn" onclick="addToCart('Healthy Salad',7)">
+ Add to Cart 
+ </buƩ on>
+ </div> 
+ </div> 
+ </div> 
+ </secƟ on>
+ <div class="cart"> 
+ <h2>뭖뭗뭘뭙뭚 Cart</h2> 
+ <ul id="cart-items"></ul> 
+ <div class="total"> 
+ Total: $<span id="total">0</span> 
+ </div> 
+ <buƩ on class="btn" onclick="checkout()">
+ Checkout 
+ </buƩ on>
+ </div> 
+ <footer> 
+ <p>© 2026 FoodExpress. All Rights Reserved.</p> 
+ </footer> 
+ <script> 
+ let total = 0; 
+ funcƟ on addToCart(item, price) {
+ const cartItems = document.getElementById("cart-items"); 
+ const li = document.createElement("li"); 
+ li.innerHTML = ` 
+ ${item} 
+ <span>$${price}</span> 
+ `; 
+ cartItems.appendChild(li); 
+ total += price; 
+ document.getElementById("total").innerText = total; 
+ } 
+ funcƟ on checkout() {
+ if (total === 0) { 
+ alert("Your cart is empty!"); 
+ } else { 
+ alert("Order placed successfully!"); 
+ document.getElementById("cart-items").innerHTML = ""; 
+ total = 0; 
+ document.getElementById("total").innerText = total; 
+ } 
+ } 
+ </script> 
+</body> 
+</html>
